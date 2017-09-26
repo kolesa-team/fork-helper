@@ -25,7 +25,7 @@ final class PcntlAdapter implements AdapterInterface
     public function call(callable $func, ...$args): int
     {
         $memory = $this->allocateMemory();
-        $pid    = pcntl_fork();
+        $pid = pcntl_fork();
 
         if ($pid == -1) {
             throw new Exception("Failed to fork");
