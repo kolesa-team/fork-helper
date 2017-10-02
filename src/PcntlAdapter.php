@@ -62,6 +62,10 @@ final class PcntlAdapter implements AdapterInterface
 
         pcntl_waitpid($pid, $status);
 
+        if (pcntl_wifexited($status)) {
+            return 0;
+        }
+
         return $status;
     }
 
